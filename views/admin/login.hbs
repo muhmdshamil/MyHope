@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            height: 100vh;
+         }
+        .container{
+            width: 400px;
+            height: 330px;
+            background-color: white;
+         border-radius: 15px;
+        padding: 14px 0;
+        box-shadow: 1px 0 3px 3px rgba(0,0,0,0.219);
+          text-align: center;
+        }
+
+        .container h3{
+       font-size: 40px;
+    margin: auto;
+    margin-bottom: 30px;
+    color: rgba(136,136, 136);
+   }
+   .container h3:hover
+   {
+    color: black;
+   }
+      .input-group
+{
+    width: 300px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-group input
+{
+  border: none;
+  padding: 7px;
+  margin-top: 5px;
+  outline: none;
+  border-bottom: 1px solid #c9c9c98a;
+  color: #2098ca;
+}
+
+.input-group label
+{
+    color: rgb(165,165,165);
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label
+{
+    color: #2098ca;
+    top: -10px;
+    font-size: 12px;
+
+}
+
+
+.input-group input:focus,
+.input-group input:valid 
+{
+    border-color: #2098ca;
+}
+
+.submit-section
+{
+    text-align: center;
+}
+
+.submit-button
+{
+    background-color: #2098ca;
+    width:300px ;
+    color: white;
+    padding: 10px 0;
+     border: none;
+    cursor: pointer;
+     margin-top: 15px;
+     border-radius: 6px;
+}
+
+.submit-button:hover
+{
+    box-shadow: 0 3px 6px silver;
+}
+    @media (min-width: 576px) {
+  .main-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    max-width: 1140px;
+  }
+}
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h3 >CampAdmin Login</h3>
+        {{#if message}}
+           <h4>{{message}}</h4>
+           {{/if}}
+        <form action="/admin/login" method="POST">
+           <div class="input-group">
+             <label for="email">Email: </label>
+             <input type="email" name="email" required>
+           </div>
+         <div class="input-group">
+               <label for="password">Password: </label>
+             <input type="password" name="password" required>
+         </div>
+         <div class="submit-section">
+             <button type="submit" class="submit-button">Login</button>
+         </div>
+      </form>
+      
+
+    </div>
+    
+</body>
+</html>

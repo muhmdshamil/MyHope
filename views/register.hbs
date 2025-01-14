@@ -1,0 +1,198 @@
+
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+    section
+    {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .main-container
+    {
+       
+        width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+      }
+   
+
+
+   .main-container .logo-container{
+   
+    background-color: white;
+    border-radius: 15px;
+    padding: 14px 0;
+    box-shadow: 1px 0 3px 3px rgba(0,0,0,0.219);
+    text-align: center;
+   }
+
+   .logo-container h3{
+       font-size: 40px;
+    width: 450px;
+    margin: auto;
+    margin-bottom: 30px;
+    color: rgba(136,136, 136);
+   }
+   .logo-container h3:hover
+   {
+    color: black;
+   }
+   .input-group
+{
+    width: 300px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-group input
+{
+  border: none;
+  padding: 7px;
+  margin-top: 5px;
+  outline: none;
+  border-bottom: 1px solid #c9c9c98a;
+  color: #2098ca;
+}
+
+.input-group label
+{
+    color: rgb(165,165,165);
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label
+{
+    color: #2098ca;
+    top: -10px;
+    font-size: 12px;
+
+}
+
+
+.input-group input:focus,
+.input-group input:valid 
+{
+    border-color: #2098ca;
+}
+  .logo-container p
+  {
+     width: 300px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+        color: rgba(136,136, 136);
+  }
+  p a
+  {
+            color: rgb(93, 89, 89);
+
+  }
+    
+.submit-section
+{
+    text-align: center;
+}
+
+.submit-button
+{
+    background-color: #2098ca;
+    width:300px ;
+    color: white;
+    padding: 10px 0;
+     border: none;
+    cursor: pointer;
+     margin-top: 15px;
+     border-radius: 6px;
+}
+
+.submit-button:hover
+{
+    box-shadow: 0 3px 6px silver;
+}
+
+@media (min-width: 380px) {
+  .main-container {
+    max-width: 340px;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .main-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    max-width: 1140px;
+  }
+}
+</style>
+<section>
+     <div class="main-container">
+        <div class="left-contianer">
+             <!-- <img src="/images/professional-img.png" alt="" style="height: 380px; margin-left:250px; margin-top:40px;" > -->
+       
+
+        </div>
+         <div class="logo-container">
+            <h3>Register</h3>
+           {{#if messages.error}}
+           <h4>{{messages.error}}</h4>
+           {{/if}}
+
+                    <form action="/register" autocomplete="on" method="post">
+                     <div class="input-group">
+                          <input type="text" required id="name" name="name">
+                          <label for="text">Full Name</label>
+                    </div>
+                        <div class="input-group">
+                          <input type="email" required id="email" name="email">
+                          <label for="email">Email</label>
+                    </div>
+                         <div class="input-group">
+                         <input type="password"  required id="password" name="password">
+                         <label for="password">Password</label>
+                         </div>
+                          <div class="input-group">
+                         <input type="password"  required id="confirmpassword" name="confirmpassword">
+                         <label for="confirmpassword">Cpassword</label>
+                         </div>
+                         <div class="submit-section">
+                          <input type="submit" class="submit-button">
+                         </div>
+                        <p>Dont't you have an account yet? <a href="/login">Login</a></p>     
+                    </form>
+         </div> 
+     </div>    
+</section>

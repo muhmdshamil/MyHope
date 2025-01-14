@@ -1,0 +1,219 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+header .logo img {
+    margin-bottom: 10px;
+    width: 40px;  /* Adjust the size of the logo */
+    height: 40px;
+}
+
+header .nav-links {
+    float: right;
+    list-style-type: none;
+    display: flex;
+    float: r;
+    
+}
+header .nav-links ul
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .nav-links li {
+    margin: 0 15px;
+}
+
+header .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+header .cta {
+    background-color: gold;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+
+/* Hero Section */
+.hero {
+    background-color: #424141;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 80px 0;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero .cta {
+    background-color: rgb(127, 126, 6);
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.hero .cta:hover
+{
+    color: #333;
+}
+
+/* Donation Form */
+.donate, .request {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.donate h2, .request h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: rgb(127, 126, 6);
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Donor List */
+#donor-list {
+    margin-top: 40px;
+}
+
+#donor-list h3 {
+    font-size: 1.5rem;
+    color: rgb(127, 126, 6);
+}
+
+#donor-list-items {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#donor-list-items li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #777;
+}
+/* Donation Form Inputs and Select Field */
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input,
+form select {
+    width: 100%; /* Ensures full width of parent container */
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Button Styling */
+form button {
+    background-color: rgb(127, 126, 6);
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}

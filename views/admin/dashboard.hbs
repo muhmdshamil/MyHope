@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f3f4f7, #e9ecf4);
+            color: #444;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(90deg, #4a00e0, #8e2de2);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #4a00e0;
+            font-weight: bold;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #8e2de2;
+            border-bottom: 3px solid #8e2de2;
+        }
+
+        /* Main Section Styling */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4a00e0;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background: linear-gradient(90deg, #4a00e0, #8e2de2);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card a:hover {
+            background: linear-gradient(90deg, #8e2de2, #4a00e0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #4a00e0;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CampAdmin Dashboard</h1>
+    </header>
+
+    <nav>
+        <ul>
+            
+            <li><a href="/admin/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>Manage Users</h2>
+                <p>View and manage registered users.</p>
+                <a href="/admin/users">Go</a>
+            </div>
+            <div class="card">
+                <h2>Blood Requests</h2>
+                <p>Track and respond to blood requests.</p>
+                <a href="/admin/blood-requests">Go</a>
+            </div>
+            <div class="card">
+                <h2>Cloth Donations</h2>
+                <p>View and manage cloth donation requests.</p>
+                <a href="/admin/cloth-bedd">Go</a>
+            </div>
+            <div class="card">
+                <h2>Food-Warter</h2>
+                <p>View and manage food-water donation requests.</p>
+                <a href="/admin/food-req">Go</a>
+            </div>
+             <div class="card">
+                <h2>Lighting Arrangement</h2>
+                <p>View and manage Lighting donation requests.</p>
+                <a href="/admin/light-req">Go</a>
+            </div>
+           
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; {{currentYear}} Hope Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>

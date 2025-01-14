@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Requests</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      color: #333;
+    }
+
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .approve-btn, .reject-btn {
+      padding: 8px 15px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .approve-btn {
+      background-color: #4CAF50;
+    }
+
+    .approve-btn:hover {
+      background-color: #45a049;
+    }
+
+    .reject-btn {
+      background-color: #f44336;
+    }
+
+    .reject-btn:hover {
+      background-color: #e53935;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #4CAF50;
+      font-size: 16px;
+      padding: 10px;
+      background-color: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+    }
+
+    .back-link:hover {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+
+  
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>CLOTH DONATION&REQUESTS</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Product Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Action</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each clothRequests}}
+        <tr>
+          <td>{{this.fname}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.phone}}</td>
+          <td>{{this.action}}</td>
+          <td>{{this.status}}</td>
+          <td>
+            {{#if (eq this.status "pending")}}
+              <a href="/admin/approve-cloth-request/{{this._id}}">
+                <button class="approve-btn">Approve</button>
+              </a>
+              <a href="/admin/reject-cloth-request/{{this._id}}">
+                <button class="reject-btn">Reject</button>
+              </a>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+      
+    </tbody>
+  </table>
+
+
+  </div>
+  
+  <a href="/admin/dashboard" class="back-link">Back to Dashboard</a>
+</body>
+</html>

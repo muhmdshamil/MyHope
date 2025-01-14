@@ -1,0 +1,217 @@
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background: #dc3545;
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo img {
+    width: 120px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffc107;
+}
+
+/* Hero Section */
+.hero {
+    background: url('/images/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero .cta {
+    background: #ffc107;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.hero .cta:hover {
+    background: #e0a800;
+}
+
+/* Section Styles */
+section {
+    margin: 50px 0;
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+section p {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Form Styles */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    background: #dc3545;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #bd2130;
+}
+
+/* Donor List Styles */
+#donor-list {
+    margin-top: 40px;
+}
+
+#donor-list h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#donor-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#donor-list li {
+    background: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation and Request Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff4e50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea, button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ff4e50;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e04344;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .donor-item {
+            margin-bottom: 10px;
+        }
+
+        .donor-list {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Donation and Request</h1>
+
+        {{#if errorMessage}}
+            <div class="error">{{errorMessage}}</div>
+        {{/if}}
+
+        <form id="lightreqestForm">
+             <label for="fname">Full Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter your full name" required>
+       
+
+             <label for="Product-name">Product-Name</label>
+            <input type="text" id="Product-name" name="Product-name" placeholder="Enter your Product name" required>
+       
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+       
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" name="quantity" placeholder="Enter your product quantity" required>
+
+
+            <label for="email">Address</label>
+            <input type="text" id="email" name="email" placeholder="Enter your camp address/Address" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        
+
+            <label>Are you looking to:</label>
+            <div>
+                <label><input type="radio" name="action" value="donate" required> Donate </label>
+                <label><input type="radio" name="action" value="request"> Request </label>
+            </div>
+
+            <label for="message">Additional Information (Optional)</label>
+            <textarea id="message" name="message" rows="4" placeholder="Provide any additional details..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Success or Error Message -->
+        <div id="successMessage" style="display: none; color: green; font-weight: bold;"></div>
+        <div id="errorMessage" style="display: none; color: red; font-weight: bold;"></div>
+
+        <!-- Donor List -->
+        <div class="donor-list" id="donorList">
+            <h2>Available Donors for product:<span id="selectedproduct"></span></h2>
+            <div id="donors"></div>
+        </div>
+    </div>
+</body>
+<script>
+document.getElementById('lightreqestForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent default form submission
+
+    // Get form data
+    const formData = new FormData(this);
+    const data = {
+        name: formData.get('name'),
+        quantity: formData.get('quantity'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        action: formData.get('action'),
+        message: formData.get('message')
+    };
+
+    // Send data to the server using Fetch API
+    fetch('/light', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            // Display success message
+            document.getElementById('successMessage').textContent = result.message;
+            document.getElementById('successMessage').style.display = 'block';
+
+            // If requesting and donors are available, show the donor list
+            if (result.donors) {
+                document.getElementById('selectedproduct').textContent = result.product;
+                const donorsDiv = document.getElementById('donors');
+                donorsDiv.innerHTML = '';  // Clear previous donors
+                result.donors.forEach(donor => {
+                    const donorItem = document.createElement('div');
+                    donorItem.classList.add('donor-item');
+                    donorItem.innerHTML = `
+                        <strong>Name:</strong> ${donor.name}<br>
+                        <strong>Quantity:</strong> ${donor.quantity}<br>
+                        <strong>Address:</strong> ${donor.email}<br>
+                        <strong>Phone:</strong> ${donor.phone}
+                    `;
+                    donorsDiv.appendChild(donorItem);
+                });
+                document.getElementById('donorList').style.display = 'block';
+            }
+        } else {
+            // Display error message
+            document.getElementById('errorMessage').textContent = result.message;
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('errorMessage').textContent = 'An error occurred. Please try again.';
+        document.getElementById('errorMessage').style.display = 'block';
+    });
+});
+</script>
+
+
+</html>
